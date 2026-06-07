@@ -13,38 +13,46 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v4
 
-      - name: Install poetry
-        uses: abatilo/actions-poetry@v4.0.0
-        with:
-          poetry-version: 1.7.0
-
+      # Setup Python (faster than using Python container)
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
+        id: setup-python
         with:
-          python-version: "3.9"
-          cache: "poetry"
+          python-version-file: .python-version
+
+      - name: Cache uv folder
+        id: cache-uv
+        uses: actions/cache@v4.3.0
+        with:
+          path: ~/.cache/uv
+          key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-uv-${{ hashFiles('pyproject.toml') }}
+
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/0.9.27/install.sh | sh
 
       - name: Install dependencies
-        run: poetry install
+        run: uv sync
 
       - name: Build static files
-        run: poetry run python ./build.py
+        run: uv run python ./build.py
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
-          registry: ${{ secrets.DOCKER_REGISTRY_URL }}
-          username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
-          password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+          path: dist
 
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          platforms: linux/amd64 #,linux/arm64
-          push: true
-          tags: |
-            ${{ secrets.DOCKER_REGISTRY_IDENTIFER }}/centralisation:latest
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/deploy-pages@v4

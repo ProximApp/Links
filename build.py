@@ -11,7 +11,7 @@ os.mkdir("./dist")
 
 # Build the index file with Jinja2
 with open("links.yaml", "r", encoding="utf8") as links_file:
-    data = yaml.load(links_file, Loader=yaml.CLoader)
+    data = yaml.load(links_file, Loader=yaml.Loader)
 
 jinja_env = Environment(
     loader=FileSystemLoader("./src"), autoescape=select_autoescape()
