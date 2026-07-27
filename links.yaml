@@ -2,6 +2,7 @@ Associations:
   - name: Joomeo
     description: ""
     icon: Joomeo.png
+    invert-on-dark: true
     url: https://private.joomeo.com/users/PhotosVieAssociativeEmlyon/folders/cDNhQmhJVzWdsvKVpBpx2Q
 
   - name: JET
@@ -22,6 +23,7 @@ Associations:
   - name: Petit Paumé
     description: ""
     icon: le petit paume.png
+    invert-on-dark: true
     url: https://www.petitpaume.com/
 
   - name: Le M
@@ -33,9 +35,11 @@ Facebook:
   - name: Job & Internship
     description: ""
     icon: Jobs & Internships.jpg
+    invert-on-dark: true
     url: https://www.facebook.com/groups/EMLYONjobsandinternships
 
   - name: Logement emlyon
     description: ""
     icon: Logement Lyon.png
+    invert-on-dark: true
     url: https://www.facebook.com/groups/94324752555
