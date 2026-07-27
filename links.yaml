@@ -1,41 +1,41 @@
 Associations:
   - name: Joomeo
-    description: desc
-    icon: mail.svg
+    description: ""
+    icon: Joomeo.png
     url: https://private.joomeo.com/users/PhotosVieAssociativeEmlyon/folders/cDNhQmhJVzWdsvKVpBpx2Q
 
   - name: JET
-    description: desc
-    icon: mail.svg
+    description: ""
+    icon: JET.png
     url: https://jet-emlyon.fr/
 
   - name: JE
-    description: desc
-    icon: mail.svg
+    description: ""
+    icon: Junior Entreprise.png
     url: https://www.facebook.com/groups/315979441924894
 
   - name: Hannibal Running
-    description: desc
-    icon: mail.svg
+    description: ""
+    icon: RAID.png
     url: https://www.facebook.com/groups/718070671662991
 
   - name: Petit Paumé
-    description: desc
-    icon: mail.svg
+    description: ""
+    icon: le petit paume.png
     url: https://www.petitpaume.com/
 
   - name: Le M
-    description: desc
-    icon: mail.svg
+    description: ""
+    icon: Verbatem.png
     url: https://le-m-verbatem.fr/
 
 Facebook:
   - name: Job & Internship
-    description: desc
-    icon: mail.svg
+    description: ""
+    icon: Jobs & Internships.jpg
     url: https://www.facebook.com/groups/EMLYONjobsandinternships
 
   - name: Logement emlyon
-    description: desc
-    icon: mail.svg
+    description: ""
+    icon: Logement Lyon.png
     url: https://www.facebook.com/groups/94324752555

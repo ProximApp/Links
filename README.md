@@ -1,6 +1,6 @@
 # Centralisation
 
-Le site Web Centralisation sert d’agrégateur de lien pour les Centraliens : sur cette même page sont centralisés les liens vers les sites et outils utiles dont peut avoir besoin chaque étudiant.
+Le site Web Centralisation sert d’agrégateur de lien pour les Étudiants : sur cette même page sont centralisés les liens vers les sites et outils utiles dont peut avoir besoin chaque étudiant.
 
 La motivation pour la création de cette page vient de la multitude de sites que l'école et son écosystème possèdent qui induit une difficulté à s'y retrouver. In fine, de nombreux étudiants n'ont pas connaissances de certains services. Aux sites institutionnels, s'ajoutent les sites et services des associations. Centralisation tente de remettre un peu d'ordre !
 
@@ -8,7 +8,7 @@ Il est recommandé d'ajouter Centralisation à ses favoris ou de configurer son 
 
 ## Le projet
 
-La page principale est générée automatiquement par un script `Python` (3.9) et utilise la librairie `Jinja2` pour automatiser l'écriture du `html`. Une documentation complète de la librairie est disponible sur le site officiel. Cependant, notre projet emploie uniquement les fonctionnalités de base.
+La page principale est générée automatiquement par un script `Python` (3.14) et utilise la librairie `Jinja2` pour automatiser l'écriture du `html`. Une documentation complète de la librairie est disponible sur le site officiel. Cependant, notre projet emploie uniquement les fonctionnalités de base.
 
 Le choix d'une génération automatique s'explique par la redondance du code HTML de la page et dans l'ambition de faire un projet clair, facilement compréhensible et modifiable.
 
@@ -25,16 +25,6 @@ Les logos non associés à des associations, logiciels ou à l'école sont issus
 ## Environnement de compilation
 
 Pour mettre à jours le site, clonez le projet sur votre PC.
-
-```bash
-git clone https://github.com/aeecleclair/Centralisation.git
-```
-
-Déplacez-vous dans le dossier du projet
-
-```bash
-cd ./centralisation
-```
 
 Modifiez le fichier `links.yaml` à votre guise.
 
@@ -55,16 +45,12 @@ qui s'occupera également de la compilation.
 
 ## Compilation
 
-Avec Poetry :
+Avec uv :
 
 ```bash
-poetry run python ./build.py
-```
+uv sync
 
-Sinon simplement,
-
-```bash
-python ./build.py
+uv run python ./build.py
 ```
 
 Récupérer le résultat dans le dossier `./dist`
